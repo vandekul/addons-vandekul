@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sendcloud_integration_kit_product" model="ir.ui.view">
+        <field name="model">sendcloud.integration</field>
+        <field name="inherit_id" ref="delivery_sendcloud_official.view_sendcloud_integration_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='active']" position="after">
+                <field name="kit_product"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
