@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/html">
+<body>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">New features and improvements for delivery sendcloud API</h2>
+        <h3 class="oe_slogan">This module allows you to extend the "delivery_sendcloud_official" and fixes some bugs</h3>
+        <div class="oe_span12">
+            <div class="oe_bg_img">
+                <img src="bitmap1.png" class="oe_picture oe_screenshot">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Configure KIT Product</h2>
+        <div class="oe_span6">
+            <p class='oe_mt32'>
+                <ul>
+                    On occasions there are products that are configured as KITs,
+                    but at the time of shipping they may be described as a single product that includes all the subcomponents that they form.
+                    Using this module it will be possible to send the KIT product including the subproducts that make it up.
+                    <li>Install Delivery SendCloud KIT Product Module</li>
+                    <li>Go to Sendcloud --> Configuration --> Integration and select your active Sendcloud Integration</li>
+                    <li>You will find a "KIT product" checkbox. If it is checked the new function will be used.</li>
+                </ul>
+            </p>
+        </div>
+        <div class="oe_span6">
+            <div class="oe_bg_img">
+                <img src="bitmap2.png" class="oe_picture oe_screenshot">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Fixed Bugs</h2>
+        <div class="oe_span12">
+            <p class='oe_mt32'>
+                <ul>
+                    <li>The <b>price</b> is modified, since in the case that the product is a KIT and the functionality of sending it as a single component is not activated, the price is not correctly taken.
+                        What has been done is to indicate the proportional part within the KIT based on the price that this component has.</li>
+                    <li>The <b>weight</b> is modified, as with the price, it is not taken correctly if the product is part of a KIT</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Important Things</h2>
+        <div class="oe_span12">
+            <p class='oe_mt32'>
+                <ul>
+                    Remember to:
+                    <li>Put the HS Code in KIT product</li>
+                    <li>Inform Weight field in KIT product. A very useful module is https://github.com/OCA/product-attribute/tree/14.0/product_weight
+                        you can find in v16 here https://github.com/vandekul/addons-zynthian16/tree/16.0/product_weight</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
