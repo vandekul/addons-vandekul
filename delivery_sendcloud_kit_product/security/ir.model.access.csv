@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-delivery_sendcloud_kit_product.access_sendcloud_integration_kit_product,access_sendcloud_integration_kit_product,delivery_sendcloud_kit_product.model_sendcloud_integration_kit_product,base.group_user,1,1,1,1
