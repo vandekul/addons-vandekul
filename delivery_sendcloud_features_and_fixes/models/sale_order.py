@@ -35,3 +35,10 @@ class SaleOrder(models.Model):
         #for delivery in (sendcloud_carriers + other_carriers):
             #_logger.info("DELIVERY: %s\n", delivery.name)
         return sendcloud_carriers + other_carriers
+
+    def _cart_update(self, *args, **kwargs):
+        """ Override to update carrier quotation if quantity changed """
+        # TODO
+        # product_id, line_id=None, add_qty=0, set_qty=0
+        return super()._cart_update(*args, **kwargs)
+
