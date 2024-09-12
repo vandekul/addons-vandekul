@@ -44,8 +44,8 @@ class StockPicking(models.Model):
                         kit_description = line_vals["description"]
                         total_weight += line_vals["weight"]
                         parcel_items += [line_vals]
-            vals["parcel_items"] = parcel_items
-
+            if parcel_items:
+                vals["parcel_items"] = parcel_items
         return vals
 
     def _prepare_sendcloud_item_vals_from_moves(self, move, package=False):
