@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="base_view_country_tree" model="ir.ui.view">
+        <field name="name">res.country.tree.inherit</field>
+        <field name="model">res.country</field>
+        <field name="inherit_id" ref="base.view_country_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='code']" position="before">
+                <field name="l10n_ru_short_name"/>
+            </xpath>
+
+            <xpath expr="//field[@name='code']" position="after">
+                <field name="number_code"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="base_view_country_form" model="ir.ui.view">
+        <field name="name">res.country.form.inherit</field>
+        <field name="model">res.country</field>
+        <field name="inherit_id" ref="base.view_country_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='currency_id']" position="before">
+                <field name="l10n_ru_short_name"/>
+            </xpath>
+
+            <xpath expr="//field[@name='code']" position="after">
+                <field name="number_code"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- State -->
+    <record id="base_view_country_state_tree" model="ir.ui.view">
+        <field name="name">res.country.state.tree.inherit</field>
+        <field name="model">res.country.state</field>
+        <field name="inherit_id" ref="base.view_country_state_tree"/>
+        <field name="arch" type="xml">
+             <xpath expr="//field[@name='code']" position="after">
+                <field name="number_code"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="base_view_country_state_form" model="ir.ui.view">
+        <field name="name">res.country.state.form.inherit</field>
+        <field name="model">res.country.state</field>
+        <field name="inherit_id" ref="base.view_country_state_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='code']" position="after">
+                <field name="number_code"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

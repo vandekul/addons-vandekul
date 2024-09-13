@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <!-- Country state-->
+		<record id="base.state_ru_ad" model="res.country.state">
+			<field name="number_code">1</field>
+			<field name="name">Республика Адыгея (Адыгея)</field>
+		</record>
+		<record id="base.state_ru_ba" model="res.country.state">
+			<field name="number_code">2</field>
+			<field name="name">Республика Башкортостан</field>
+		</record>
+		<record id="base.state_ru_bu" model="res.country.state">
+			<field name="number_code">3</field>
+			<field name="name">Республика Бурятия</field>
+		</record>
+		<record id="base.state_ru_al" model="res.country.state">
+			<field name="number_code">4</field>
+			<field name="name">Республика Алтай</field>
+		</record>
+		<record id="base.state_ru_da" model="res.country.state">
+			<field name="number_code">5</field>
+			<field name="name">Республика Дагестан</field>
+		</record>
+		<record id="base.state_ru_in" model="res.country.state">
+			<field name="number_code">6</field>
+			<field name="name">Республика Ингушетия</field>
+		</record>
+		<record id="base.state_ru_kb" model="res.country.state">
+			<field name="number_code">7</field>
+			<field name="name">Кабардино-Балкарская Республика</field>
+		</record>
+		<record id="base.state_ru_kl" model="res.country.state">
+			<field name="number_code">8</field>
+			<field name="name">Республика Калмыкия</field>
+		</record>
+		<record id="base.state_ru_kc" model="res.country.state">
+			<field name="number_code">9</field>
+			<field name="name">Карачаево-Черкесская Республика</field>
+		</record>
+		<record id="base.state_ru_kr" model="res.country.state">
+			<field name="number_code">10</field>
+			<field name="name">Республика Карелия</field>
+		</record>
+		<record id="base.state_ru_ko" model="res.country.state">
+			<field name="number_code">11</field>
+			<field name="name">Республика Коми</field>
+		</record>
+		<record id="base.state_ru_me" model="res.country.state">
+			<field name="number_code">12</field>
+			<field name="name">Республика Марий Эл</field>
+		</record>
+		<record id="base.state_ru_mo" model="res.country.state">
+			<field name="number_code">13</field>
+			<field name="name">Республика Мордовия</field>
+		</record>
+		<record id="base.state_ru_sa" model="res.country.state">
+			<field name="number_code">14</field>
+			<field name="name">Республика Саха (Якутия)</field>
+		</record>
+		<record id="base.state_ru_se" model="res.country.state">
+			<field name="number_code">15</field>
+			<field name="name">Республика Северная Осетия - Алания</field>
+		</record>
+		<record id="base.state_ru_ta" model="res.country.state">
+			<field name="number_code">16</field>
+			<field name="name">Республика Татарстан (Татарстан)</field>
+		</record>
+		<record id="base.state_ru_ty" model="res.country.state">
+			<field name="number_code">17</field>
+			<field name="name">Республика Тыва</field>
+		</record>
+		<record id="base.state_ru_ud" model="res.country.state">
+			<field name="number_code">18</field>
+			<field name="name">Удмуртская Республика</field>
+		</record>
+		<record id="base.state_ru_kk" model="res.country.state">
+			<field name="number_code">19</field>
+			<field name="name">Республика Хакасия</field>
+		</record>
+		<record id="base.state_ru_ce" model="res.country.state">
+			<field name="number_code">20</field>
+			<field name="name">Чеченская Республика</field>
+		</record>
+		<record id="base.state_ru_cu" model="res.country.state">
+			<field name="number_code">21</field>
+			<field name="name">Чувашская Республика - Чувашия</field>
+		</record>
+		<record id="base.state_ru_alt" model="res.country.state">
+			<field name="number_code">22</field>
+			<field name="name">Алтайский край</field>
+		</record>
+		<record id="base.state_ru_kda" model="res.country.state">
+			<field name="number_code">23</field>
+			<field name="name">Краснодарский край</field>
+		</record>
+		<record id="base.state_ru_kya" model="res.country.state">
+			<field name="number_code">24</field>
+			<field name="name">Красноярский край</field>
+		</record>
+		<record id="base.state_ru_pri" model="res.country.state">
+			<field name="number_code">25</field>
+			<field name="name">Приморский край</field>
+		</record>
+		<record id="base.state_ru_sta" model="res.country.state">
+			<field name="number_code">26</field>
+			<field name="name">Ставропольский край</field>
+		</record>
+		<record id="base.state_ru_kha" model="res.country.state">
+			<field name="number_code">27</field>
+			<field name="name">Хабаровский край</field>
+		</record>
+		<record id="base.state_ru_amu" model="res.country.state">
+			<field name="number_code">28</field>
+			<field name="name">Амурская область</field>
+		</record>
+		<record id="base.state_ru_ark" model="res.country.state">
+			<field name="number_code">29</field>
+			<field name="name">Архангельская область</field>
+		</record>
+		<record id="base.state_ru_ast" model="res.country.state">
+			<field name="number_code">30</field>
+			<field name="name">Астраханская область</field>
+		</record>
+		<record id="base.state_ru_bel" model="res.country.state">
+			<field name="number_code">31</field>
+			<field name="name">Белгородская область</field>
+		</record>
+		<record id="base.state_ru_bry" model="res.country.state">
+			<field name="number_code">32</field>
+			<field name="name">Брянская область</field>
+		</record>
+		<record id="base.state_ru_vla" model="res.country.state">
+			<field name="number_code">33</field>
+			<field name="name">Владимирская область</field>
+		</record>
+		<record id="base.state_ru_vgg" model="res.country.state">
+			<field name="number_code">34</field>
+			<field name="name">Волгоградская область</field>
+		</record>
+		<record id="base.state_ru_vlg" model="res.country.state">
+			<field name="number_code">35</field>
+			<field name="name">Вологодская область</field>
+		</record>
+		<record id="base.state_ru_vor" model="res.country.state">
+			<field name="number_code">36</field>
+			<field name="name">Воронежская область</field>
+		</record>
+		<record id="base.state_ru_iva" model="res.country.state">
+			<field name="number_code">37</field>
+			<field name="name">Ивановская область</field>
+		</record>
+		<record id="base.state_ru_irk" model="res.country.state">
+			<field name="number_code">38</field>
+			<field name="name">Иркутская область</field>
+		</record>
+		<record id="base.state_ru_kgd" model="res.country.state">
+			<field name="number_code">39</field>
+			<field name="name">Калининградская область</field>
+		</record>
+		<record id="base.state_ru_klu" model="res.country.state">
+			<field name="number_code">40</field>
+			<field name="name">Калужская область</field>
+		</record>
+		<record id="base.state_ru_kam" model="res.country.state">
+			<field name="number_code">41</field>
+			<field name="name">Камчатский край</field>
+		</record>
+		<record id="base.state_ru_kem" model="res.country.state">
+			<field name="number_code">42</field>
+			<field name="name">Кемеровская область</field>
+		</record>
+		<record id="base.state_ru_kir" model="res.country.state">
+			<field name="number_code">43</field>
+			<field name="name">Кировская область</field>
+		</record>
+		<record id="base.state_ru_kos" model="res.country.state">
+			<field name="number_code">44</field>
+			<field name="name">Костромская область</field>
+		</record>
+		<record id="base.state_ru_kgn" model="res.country.state">
+			<field name="number_code">45</field>
+			<field name="name">Курганская область</field>
+		</record>
+		<record id="base.state_ru_krs" model="res.country.state">
+			<field name="number_code">46</field>
+			<field name="name">Курская область</field>
+		</record>
+		<record id="base.state_ru_len" model="res.country.state">
+			<field name="number_code">47</field>
+			<field name="name">Ленинградская область</field>
+		</record>
+		<record id="base.state_ru_lip" model="res.country.state">
+			<field name="number_code">48</field>
+			<field name="name">Липецкая область</field>
+		</record>
+		<record id="base.state_ru_mag" model="res.country.state">
+			<field name="number_code">49</field>
+			<field name="name">Магаданская область</field>
+		</record>
+		<record id="base.state_ru_mos" model="res.country.state">
+			<field name="number_code">50</field>
+			<field name="name">Московская область</field>
+		</record>
+		<record id="base.state_ru_mur" model="res.country.state">
+			<field name="number_code">51</field>
+			<field name="name">Мурманская область</field>
+		</record>
+		<record id="base.state_ru_niz" model="res.country.state">
+			<field name="number_code">52</field>
+			<field name="name">Нижегородская область</field>
+		</record>
+		<record id="base.state_ru_ngr" model="res.country.state">
+			<field name="number_code">53</field>
+			<field name="name">Новгородская область</field>
+		</record>
+		<record id="base.state_ru_nvs" model="res.country.state">
+			<field name="number_code">54</field>
+			<field name="name">Новосибирская область</field>
+		</record>
+		<record id="base.state_ru_oms" model="res.country.state">
+			<field name="number_code">55</field>
+			<field name="name">Омская область</field>
+		</record>
+		<record id="base.state_ru_ore" model="res.country.state">
+			<field name="number_code">56</field>
+			<field name="name">Оренбургская область</field>
+		</record>
+		<record id="base.state_ru_orl" model="res.country.state">
+			<field name="number_code">57</field>
+			<field name="name">Орловская область</field>
+		</record>
+		<record id="base.state_ru_pnz" model="res.country.state">
+			<field name="number_code">58</field>
+			<field name="name">Пензенская область</field>
+		</record>
+		<record id="base.state_ru_per" model="res.country.state">
+			<field name="number_code">59</field>
+			<field name="name">Пермский край</field>
+		</record>
+		<record id="base.state_ru_psk" model="res.country.state">
+			<field name="number_code">60</field>
+			<field name="name">Псковская область</field>
+		</record>
+		<record id="base.state_ru_ros" model="res.country.state">
+			<field name="number_code">61</field>
+			<field name="name">Ростовская область</field>
+		</record>
+		<record id="base.state_ru_rya" model="res.country.state">
+			<field name="number_code">62</field>
+			<field name="name">Рязанская область</field>
+		</record>
+		<record id="base.state_ru_sam" model="res.country.state">
+			<field name="number_code">63</field>
+			<field name="name">Самарская область</field>
+		</record>
+		<record id="base.state_ru_sar" model="res.country.state">
+			<field name="number_code">64</field>
+			<field name="name">Саратовская область</field>
+		</record>
+		<record id="base.state_ru_sak" model="res.country.state">
+			<field name="number_code">65</field>
+			<field name="name">Сахалинская область</field>
+		</record>
+		<record id="base.state_ru_sve" model="res.country.state">
+			<field name="number_code">66</field>
+			<field name="name">Свердловская область</field>
+		</record>
+		<record id="base.state_ru_smo" model="res.country.state">
+			<field name="number_code">67</field>
+			<field name="name">Смоленская область</field>
+		</record>
+		<record id="base.state_ru_tam" model="res.country.state">
+			<field name="number_code">68</field>
+			<field name="name">Тамбовская область</field>
+		</record>
+		<record id="base.state_ru_tve" model="res.country.state">
+			<field name="number_code">69</field>
+			<field name="name">Тверская область</field>
+		</record>
+		<record id="base.state_ru_tom" model="res.country.state">
+			<field name="number_code">70</field>
+			<field name="name">Томская область</field>
+		</record>
+		<record id="base.state_ru_tul" model="res.country.state">
+			<field name="number_code">71</field>
+			<field name="name">Тульская область</field>
+		</record>
+		<record id="base.state_ru_tyu" model="res.country.state">
+			<field name="number_code">72</field>
+			<field name="name">Тюменская область</field>
+		</record>
+		<record id="base.state_ru_uly" model="res.country.state">
+			<field name="number_code">73</field>
+			<field name="name">Ульяновская область</field>
+		</record>
+		<record id="base.state_ru_che" model="res.country.state">
+			<field name="number_code">74</field>
+			<field name="name">Челябинская область</field>
+		</record>
+		<record id="base.state_ru_yar" model="res.country.state">
+			<field name="number_code">76</field>
+			<field name="name">Ярославская область</field>
+		</record>
+		<record id="base.state_ru_mow" model="res.country.state">
+			<field name="number_code">77</field>
+			<field name="name">г. Москва</field>
+		</record>
+		<record id="base.state_ru_spe" model="res.country.state">
+			<field name="number_code">78</field>
+			<field name="name">Санкт-Петербург</field>
+		</record>
+		<record id="base.state_ru_yev" model="res.country.state">
+			<field name="number_code">79</field>
+			<field name="name">Еврейская автономная область</field>
+		</record>
+		<record id="base.state_ru_khm" model="res.country.state">
+			<field name="number_code">86</field>
+			<field name="name">Ханты-Мансийский автономный округ - Югра</field>
+		</record>
+		<record id="base.state_ru_chu" model="res.country.state">
+			<field name="number_code">87</field>
+			<field name="name">Чукотский автономный округ</field>
+		</record>
+		<record id="base.state_ru_yan" model="res.country.state">
+			<field name="number_code">89</field>
+			<field name="name">Ямало-Ненецкий автономный округ</field>
+		</record>
+    </data>
+
+</odoo>

@@ -1,0 +1,18 @@
+<odoo>
+  <data>
+  
+    <record id="view_res_bank_form_inherit" model="ir.ui.view">
+      <field name="name">view_res_bank_form_inherit</field>
+      <field name="model">res.bank</field>
+      <field name="inherit_id" ref="base.view_res_bank_form" />
+      <field name="arch" type="xml">
+
+        <xpath expr="//field[@name='bic']" position="before">
+          <field name="corr_account"/>
+        </xpath>
+
+      </field>
+    </record>
+
+  </data>
+</odoo>

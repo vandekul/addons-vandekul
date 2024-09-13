@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="1">
+        <!-- Currencies -->
+        <record id="base.RUB" model="res.currency">
+            <field name="number_code">643</field>
+            <field name="symbol"> руб</field>
+            <field name="rounding">0.01</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="base.EUR" model="res.currency">
+            <field name="number_code">978</field>
+            <field name="symbol">€</field>
+            <field name="rounding">0.01</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="base.USD" model="res.currency">
+            <field name="number_code">840</field>
+            <field name="symbol">$</field>
+            <field name="rounding">0.01</field>
+            <field name="position">before</field>
+            <field name="active" eval="True"/>
+        </record>
+    </data>
+
+</odoo>

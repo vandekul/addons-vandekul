@@ -1,0 +1,437 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_russia
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0-20220506\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-24 07:38+0000\n"
+"PO-Revision-Date: 2022-05-24 07:38+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_russia
+#: code:addons/l10n_russia/models/partner.py:0
+#, python-format
+msgid ""
+"5,6 symbols of IEC are incorrect. Please check the IEC and country data."
+msgstr ""
+"5, 6 символы КПП не корректны. Пожалуйста, проверьте данные КПП и страны в "
+"адресе."
+
+#. module: l10n_russia
+#: model:ir.model.fields,field_description:l10n_russia.field_res_partner__okpo
+#: model:ir.model.fields,field_description:l10n_russia.field_res_users__okpo
+msgid "ARCEO"
+msgstr "ОКПО"
+
+#. module: l10n_russia
+#: code:addons/l10n_russia/models/partner.py:0
+#, python-format
+msgid "ARCEO is incorrect. Please check the data."
+msgstr "Код ОКПО не корректен. Пожалуйста, проверьте введенные данные."
+
+#. module: l10n_russia
+#: model:ir.model.fields,help:l10n_russia.field_res_partner__okpo
+#: model:ir.model.fields,help:l10n_russia.field_res_users__okpo
+msgid ""
+"All-Russian Classifier of Enterprises and Organizations\n"
+"Contains 8 digits for companies or 10 digits for sole proprietors."
+msgstr ""
+"Общероссийский классификатор предприятий и организаций\n"
+"Содержит 8 цифр для компаний и 10 цифр для ИП"
+
+#. module: l10n_russia
+#: model:ir.model.fields,help:l10n_russia.field_res_partner__arceat
+#: model:ir.model.fields,help:l10n_russia.field_res_users__arceat
+msgid ""
+"All-Russian classifier of economic activity types, Main code for company\n"
+"Format: 00.00 or 00.00.0 or 00.00.00"
+msgstr ""
+"Общероссийский классификатор видов экономической деятельности, основной код компании\n"
+"Формат: 00.00 или 00.00.0, или 00.00.00"
+
+#. module: l10n_russia
+#: model:ir.model,name:l10n_russia.model_res_bank
+msgid "Bank"
+msgstr "Банк"
+
+#. module: l10n_russia
+#: model:ir.model.fields,field_description:l10n_russia.field_res_partner__birth_date
+#: model:ir.model.fields,field_description:l10n_russia.field_res_users__birth_date
+msgid "Birth date"
+msgstr ""
+
+#. module: l10n_russia
+#: model:ir.model,name:l10n_russia.model_res_partner
+msgid "Contact"
+msgstr "Контакт"
+
+#. module: l10n_russia
+#: model:ir.model.fields.selection,name:l10n_russia.selection__res_partner__company_form__coop
+msgid "Cooperative"
+msgstr "Кооператив"
+
+#. module: l10n_russia
+#: model:ir.model.fields,field_description:l10n_russia.field_res_bank__corr_account
+msgid "Corresponding account"
+msgstr "Корреспондентский счет"
+
+#. module: l10n_russia
+#: model:ir.model,name:l10n_russia.model_res_country
+msgid "Country"
+msgstr "Страна"
+
+#. module: l10n_russia
+#: model:ir.model,name:l10n_russia.model_res_country_state
+msgid "Country state"
+msgstr "Область"
+
+#. module: l10n_russia
+#: model:ir.model,name:l10n_russia.model_res_currency
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: l10n_russia
+#: model:ir.model.fields,help:l10n_russia.field_res_partner__passport_department
+#: model:ir.model.fields,help:l10n_russia.field_res_users__passport_department
+msgid "Department issued the passport"
+msgstr "Подразделение, выдавшее паспорт"
+
+#. module: l10n_russia
+#: model:ir.model.fields,field_description:l10n_russia.field_product_template__display_name
+#: model:ir.model.fields,field_description:l10n_russia.field_res_bank__display_name
+#: model:ir.model.fields,field_description:l10n_russia.field_res_country__display_name
+#: model:ir.model.fields,field_description:l10n_russia.field_res_country_state__display_name
+#: model:ir.model.fields,field_description:l10n_russia.field_res_currency__display_name
+#: model:ir.model.fields,field_description:l10n_russia.field_res_partner__display_name
+#: model:ir.model.fields,field_description:l10n_russia.field_uom_uom__display_name
+msgid "Display Name"
+msgstr "Отображаемое имя"
+
+#. module: l10n_russia
+#: code:addons/l10n_russia/models/partner.py:0
+#, python-format
+msgid "First PSRN SP symbol mismatch company form."
+msgstr ""
+"Первый символ ОГРН ИП не соответствует организацонно-правовой форме "
+"компании."
+
+#. module: l10n_russia
+#: code:addons/l10n_russia/models/partner.py:0
+#, python-format
+msgid "First PSRN symbol mismatch company form."
+msgstr ""
+"Первый символ ОГРН не соответствует организацонно-правовой форме компании."
+
+#. module: l10n_russia
+#: model:ir.model.fields.selection,name:l10n_russia.selection__res_partner__company_form__ga
+msgid "Government agency"
+msgstr "Государственное учреждение"
+
+#. module: l10n_russia
+#: model:ir.model.fields,field_description:l10n_russia.field_product_template__id
+#: model:ir.model.fields,field_description:l10n_russia.field_res_bank__id
+#: model:ir.model.fields,field_description:l10n_russia.field_res_country__id
+#: model:ir.model.fields,field_description:l10n_russia.field_res_country_state__id
+#: model:ir.model.fields,field_description:l10n_russia.field_res_currency__id
+#: model:ir.model.fields,field_description:l10n_russia.field_res_partner__id
+#: model:ir.model.fields,field_description:l10n_russia.field_uom_uom__id
+msgid "ID"
+msgstr "Идентификатор"
+
+#. module: l10n_russia
+#: model:ir.model.fields,field_description:l10n_russia.field_res_partner__iec
+#: model:ir.model.fields,field_description:l10n_russia.field_res_users__iec
+msgid "IEC"
+msgstr "КПП"
+
+#. module: l10n_russia
+#: code:addons/l10n_russia/models/partner.py:0
+#, python-format
+msgid "IEC is incorrect. Please check the IEC and country data"
+msgstr ""
+"Номер КПП не корректен. Пожалуйста, проверьте данные КПП и страны в адресе."
+
+#. module: l10n_russia
+#: model:ir.model.fields,help:l10n_russia.field_res_country__l10n_russia_short_name
+msgid "In some cases is required to use shortened name. This is it."
+msgstr "В некоторых случаях требуется использовать сокращенное имя. Это оно."
+
+#. module: l10n_russia
+#: model:ir.model.fields,help:l10n_russia.field_res_partner__iec
+#: model:ir.model.fields,help:l10n_russia.field_res_users__iec
+msgid ""
+"Industrial Enterprises ClassifierHave 9 numbers length\n"
+"Numbers 5, 6 are 01-50 for russian companies and 51-99 for foreign companies."
+msgstr ""
+"Код Классификатора промышленных предприятий имеед длину 9 цифр\n"
+"5-й и 6-й символы для российских компаний 01-50, для иностранных 51-99."
+
+#. module: l10n_russia
+#: model:ir.model.fields,field_description:l10n_russia.field_res_partner__company_form
+#: model:ir.model.fields,field_description:l10n_russia.field_res_users__company_form
+msgid "Institutional-Legal Form"
+msgstr "Организационно-правовая форма"
+
+#. module: l10n_russia
+#: code:addons/l10n_russia/models/partner.py:0
+#, python-format
+msgid "Institutional-Legal Form must be set up!"
+msgstr "Организационно-правовая форма должна быть установлена!"
+
+#. module: l10n_ru
+#: model:ir.model.fields.selection,name:l10n_ru.selection__res_partner__company_form__сjsc
+msgid "Сlosed joint stock company"
+msgstr "Закрытое акционерное общество"
+
+#. module: l10n_russia
+#: model:ir.model.fields,field_description:l10n_russia.field_product_template__default_code
+msgid "Internal Reference"
+msgstr "Внутренний артикул"
+
+#. module: l10n_russia
+#: model:ir.model.fields.selection,name:l10n_russia.selection__res_partner__company_form__jsc
+msgid "Joint stock company"
+msgstr "Акционерное общество"
+
+#. module: l10n_russia
+#: model:ir.model.fields,field_description:l10n_russia.field_product_template____last_update
+#: model:ir.model.fields,field_description:l10n_russia.field_res_bank____last_update
+#: model:ir.model.fields,field_description:l10n_russia.field_res_country____last_update
+#: model:ir.model.fields,field_description:l10n_russia.field_res_country_state____last_update
+#: model:ir.model.fields,field_description:l10n_russia.field_res_currency____last_update
+#: model:ir.model.fields,field_description:l10n_russia.field_res_partner____last_update
+#: model:ir.model.fields,field_description:l10n_russia.field_uom_uom____last_update
+msgid "Last Modified on"
+msgstr "Последнее изменение"
+
+#. module: l10n_russia
+#: model:ir.model.fields,field_description:l10n_russia.field_res_partner__arceat
+#: model:ir.model.fields,field_description:l10n_russia.field_res_users__arceat
+msgid "Main code ARCEAT"
+msgstr "Основной код ОКВЭД"
+
+#. module: l10n_russia
+#: model:ir.model.fields,field_description:l10n_russia.field_res_country__number_code
+#: model:ir.model.fields,field_description:l10n_russia.field_res_country_state__number_code
+#: model:ir.model.fields,field_description:l10n_russia.field_res_currency__number_code
+msgid "Number code"
+msgstr "Числовой код"
+
+#. module: l10n_russia
+#: model:ir.model.fields,field_description:l10n_russia.field_res_partner__psrn
+#: model:ir.model.fields,field_description:l10n_russia.field_res_users__psrn
+msgid "PSRN"
+msgstr "ОГРН"
+
+#. module: l10n_russia
+#: model:ir.model.fields,field_description:l10n_russia.field_res_partner__psrn_sp
+#: model:ir.model.fields,field_description:l10n_russia.field_res_users__psrn_sp
+msgid "PSRN SP"
+msgstr "ОГРН ИП"
+
+#. module: l10n_russia
+#: code:addons/l10n_russia/models/partner.py:0
+#, python-format
+msgid "PSRN SP is incorrect. Please check the data"
+msgstr "Номер ОГРН ИП не корректен. Пожалуйста, проверьте введенные данные."
+
+#. module: l10n_russia
+#: code:addons/l10n_russia/models/partner.py:0
+#, python-format
+msgid "PSRN is incorrect. Please check the data"
+msgstr "Номер ОГРН не корректен. Пожалуйста, проверьте введенные данные."
+
+#. module: l10n_russia
+#: code:addons/l10n_russia/models/partner.py:0
+#, python-format
+msgid "Partner with ARCEO \"%s\" already exists (%s)"
+msgstr "Контакт с ОКПО \"%s\" уже существует (%s)"
+
+#. module: l10n_russia
+#: code:addons/l10n_russia/models/partner.py:0
+#, python-format
+msgid "Partner with PSRN \"%s\" already exists (%s)"
+msgstr "Контакт с ОГРН \"%s\" уже существует (%s)"
+
+#. module: l10n_russia
+#: code:addons/l10n_russia/models/partner.py:0
+#, python-format
+msgid "Partner with PSRN SP \"%s\" already exists (%s)"
+msgstr "Контакт с ОГРН ИП \"%s\" уже существует (%s)"
+
+#. module: l10n_russia
+#: model:ir.model.fields.selection,name:l10n_russia.selection__res_partner__company_form__pshp
+msgid "Partnership"
+msgstr "Товарищество"
+
+#. module: l10n_russia
+#: model_terms:ir.ui.view,arch_db:l10n_russia.view_partner_form_inherit
+msgid "Passport"
+msgstr "Паспорт"
+
+#. module: l10n_russia
+#: model:ir.model.fields,field_description:l10n_russia.field_res_partner__passport_date
+#: model:ir.model.fields,field_description:l10n_russia.field_res_users__passport_date
+#: model:ir.model.fields,help:l10n_russia.field_res_partner__passport_date
+#: model:ir.model.fields,help:l10n_russia.field_res_users__passport_date
+msgid "Passport issue date"
+msgstr "Дата выдачи паспорта"
+
+#. module: l10n_russia
+#: model:ir.model.fields,field_description:l10n_russia.field_res_partner__passport_department
+#: model:ir.model.fields,field_description:l10n_russia.field_res_users__passport_department
+msgid "Passport issued by"
+msgstr "Паспорт выдан"
+
+#. module: l10n_russia
+#: model:ir.model.fields,help:l10n_russia.field_res_partner__passport_number
+#: model:ir.model.fields,help:l10n_russia.field_res_users__passport_number
+msgid "Passport series and number"
+msgstr "Серия и номер паспорта"
+
+#. module: l10n_russia
+#: model:ir.model.fields,field_description:l10n_russia.field_res_partner__passport_number
+#: model:ir.model.fields,field_description:l10n_russia.field_res_users__passport_number
+msgid "Passport №"
+msgstr "№ паспорта"
+
+#. module: l10n_russia
+#: model:ir.model.fields,help:l10n_russia.field_res_partner__birth_date
+#: model:ir.model.fields,help:l10n_russia.field_res_users__birth_date
+msgid "Person's birth date"
+msgstr ""
+
+#. module: l10n_russia
+#: model:ir.model.fields,help:l10n_russia.field_res_partner__psrn
+#: model:ir.model.fields,help:l10n_russia.field_res_users__psrn
+msgid ""
+"Primary State Registration Number\n"
+"Contains 13 digits. First one: 1,5 - for commercial organizations\n"
+"The rest except 3 - for state agencies."
+msgstr ""
+"Основной Государственный Регистрационный Номер\n"
+"Содержит 13 цифр. Первая: 1 или 5 - для коммерческих организаций\n"
+"Остальные, кроме 3, - для государственных учреждений."
+
+#. module: l10n_russia
+#: model:ir.model.fields,help:l10n_russia.field_res_partner__psrn_sp
+#: model:ir.model.fields,help:l10n_russia.field_res_users__psrn_sp
+msgid ""
+"Primary State Registration Number of Sole Proprietorship\n"
+"Contains 15 digits. First digit should be 3"
+msgstr ""
+"Основной Государственный Регистрационный Номер Индивидуального Предпринимателя\n"
+"Содержит 15 цифр. Первая цифра должна быть 3."
+
+#. module: l10n_russia
+#: model:ir.model.fields.selection,name:l10n_russia.selection__res_partner__company_form__plc
+msgid "Private Limited Company"
+msgstr "Общество с ограниченной ответственностью"
+
+#. module: l10n_russia
+#: model:ir.model,name:l10n_russia.model_product_template
+msgid "Product Template"
+msgstr "Шаблон продукта"
+
+#. module: l10n_russia
+#: model:ir.model,name:l10n_russia.model_uom_uom
+msgid "Product Unit of Measure"
+msgstr "Ед. изм. продукта"
+
+#. module: l10n_russia
+#: model:ir.model.fields.selection,name:l10n_russia.selection__res_partner__company_form__pc
+msgid "Public company"
+msgstr "Публичное акционерное общество"
+
+#. module: l10n_russia
+#: model:ir.model.fields,field_description:l10n_russia.field_res_partner__sp_register_number
+#: model:ir.model.fields,field_description:l10n_russia.field_res_users__sp_register_number
+msgid "SP Certificate Number"
+msgstr "Номер Свидетесльства о регистрации ИП"
+
+#. module: l10n_russia
+#: model:ir.model.fields,field_description:l10n_russia.field_res_partner__sp_register_date
+#: model:ir.model.fields,field_description:l10n_russia.field_res_users__sp_register_date
+msgid "SP Registration Date"
+msgstr "Дата регистрации ИП"
+
+#. module: l10n_russia
+#: model:ir.model.fields,help:l10n_russia.field_res_partner__sp_register_date
+#: model:ir.model.fields,help:l10n_russia.field_res_users__sp_register_date
+msgid "SP registration certificate dateSince 28.04.2018 not necessary"
+msgstr ""
+"Дата выдачи Свидительства о государственной регистрации ИП. С 28.04.2018 "
+"опционально."
+
+#. module: l10n_russia
+#: model:ir.model.fields,help:l10n_russia.field_res_partner__sp_register_number
+#: model:ir.model.fields,help:l10n_russia.field_res_users__sp_register_number
+msgid "SP registration certificate number. Since 28.04.2018 not necessary"
+msgstr ""
+"Номер Свидетельства о государственной регистрации ИП. С 28.04.2018 "
+"опционально."
+
+#. module: l10n_russia
+#: model:ir.model.fields,field_description:l10n_russia.field_res_country__l10n_russia_short_name
+msgid "Short name"
+msgstr "Сокращенное имя"
+
+#. module: l10n_russia
+#: model:ir.model.fields.selection,name:l10n_russia.selection__res_partner__company_form__sp
+msgid "Sole Proprietor"
+msgstr "Индивидуальный предприниматель"
+
+#. module: l10n_russia
+#: model_terms:ir.ui.view,arch_db:l10n_russia.view_partner_form_inherit
+msgid "TIN"
+msgstr "ИНН"
+
+#. module: l10n_russia
+#: code:addons/l10n_russia/models/partner.py:0
+#, python-format
+msgid ""
+"TIN for partner %s is incorrect. Please check the TIN data and the "
+"company/individual setting."
+msgstr ""
+
+#. module: l10n_russia
+#: model:ir.model.fields,help:l10n_russia.field_product_template__default_code
+msgid ""
+"The field is used as a product code\n"
+"     in the document template 'UPD', 'Invoice', 'Act'.\n"
+"     \n"
+"     If this is not a product, but a service,\n"
+"     then you need to specify the 'ОКВЕД' service code https://код-оквэд.рф"
+msgstr ""
+"Поле используется как код продукта\n"
+"     в шаблоне документов 'УПД', 'Товарная накладная', 'Акт'.\n"
+"     \n"
+"     Если это не продукт, а услуга,\n"
+"     тогда указывается код услуги по 'ОКВЕД' https://код-оквэд.рф"
+
+#. module: l10n_russia
+#: model:ir.model.fields,help:l10n_russia.field_uom_uom__uom_code
+msgid "The unit code for 'All-Russian classifier of units of measurement'"
+msgstr "Код единицы по 'Общероссийскому классификатору единиц измерения'"
+
+#. module: l10n_russia
+#: model:ir.model.fields,field_description:l10n_russia.field_uom_uom__uom_code
+msgid "Unit code"
+msgstr "Код единицы измерения"
+
+#. module: l10n_russia
+#: code:addons/l10n_russia/models/partner.py:0
+#, python-format
+msgid ""
+"Wrong ARCEAT code format.\n"
+"It should contain digits only and be like \"00.00\" or \"00.00.0\", or \"00.00.00\""
+msgstr ""
+"Неверный формат номера ОКВЭД.\n"
+"Номер должен содержать только цифры и иметь формат \"00.00\", или \"00.00.0\", или \"00.00.00\"."

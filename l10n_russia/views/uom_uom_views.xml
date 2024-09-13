@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_uom_form_view_inh" model="ir.ui.view">
+        <field name="name">uom.uom.form_inh</field>
+        <field name="model">uom.category</field>
+        <field name="inherit_id" ref="uom.product_uom_categ_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/notebook/page/field/tree/field[@name='name']" position="after">
+                <field name="uom_code"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

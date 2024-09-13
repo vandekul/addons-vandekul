@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="uom.product_uom_unit" model="uom.uom">
+        <field name="uom_code">642</field>
+    </record>
+
+    <record id="uom.product_uom_dozen" model="uom.uom">
+        <field name="uom_code">641</field>
+    </record>
+
+    <!-- WORKING TIME -->
+    <record id="uom.product_uom_day" model="uom.uom">
+        <field name="uom_code">359</field>
+    </record>
+
+    <record id="uom.product_uom_hour" model="uom.uom">
+        <field name="uom_code">356</field>
+    </record>
+
+    <!-- LENGTH -->
+    <record id="uom.product_uom_meter" model="uom.uom">
+        <field name="uom_code">006</field>
+    </record>
+<!--    <record id="uom.product_uom_millimeter" model="uom.uom">-->
+<!--        <field name="uom_code">003</field>-->
+<!--    </record>-->
+    <record id="uom.product_uom_km" model="uom.uom">
+        <field name="uom_code">008</field>
+    </record>
+
+    <record id="uom.product_uom_cm" model="uom.uom">
+        <field name="uom_code">004</field>
+    </record>
+
+    <!-- SURFACE -->
+<!--    <record id="uom.uom_square_meter" model="uom.uom">-->
+<!--        <field name="uom_code">055</field>-->
+<!--    </record>-->
+
+    <!-- VOLUME -->
+    <record id="uom.product_uom_litre" model="uom.uom">
+        <field name="uom_code">112</field>
+    </record>
+
+    <record id="uom.product_uom_cubic_meter" model="uom.uom">
+        <field name="uom_code">113</field>
+    </record>
+
+    <!-- WEIGHT -->
+    <record id="uom.product_uom_kgm" model="uom.uom">
+        <field name="uom_code">166</field>
+    </record>
+
+    <record id="uom.product_uom_gram" model="uom.uom">
+        <field name="uom_code">163</field>
+    </record>
+
+    <record id="uom.product_uom_ton" model="uom.uom">
+        <field name="uom_code">168</field>
+    </record>
+
+    <!-- LENGTH -->
+    <record id="uom.product_uom_inch" model="uom.uom">
+        <field name="uom_code">039</field>
+    </record>
+
+    <record id="uom.product_uom_foot" model="uom.uom">
+        <field name="uom_code">041</field>
+    </record>
+
+    <record id="uom.product_uom_mile" model="uom.uom">
+        <field name="uom_code">047</field>
+    </record>
+
+<!--     SURFACE -->
+<!--    <record id="uom.uom_square_foot" model="uom.uom">-->
+<!--        <field name="uom_code">073</field>-->
+<!--    </record>-->
+
+<!--    volume-->
+    <record id="uom.product_uom_cubic_inch" model="uom.uom">
+        <field name="uom_code">131</field>
+    </record>
+
+    <record id="uom.product_uom_cubic_foot" model="uom.uom">
+        <field name="uom_code">132</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,45 @@
+<odoo>
+  <data>
+
+    <record id="view_partner_form_inherit" model="ir.ui.view">
+      <field name="name">view_partner_form_inherit</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+
+        <xpath expr="//page[@name='sales_purchases']" position="after">
+          <page string="Passport" attrs="{'invisible': [('company_type','=', 'company')]}">
+            <group>
+              <field name="passport_number"/>
+              <field name="passport_date"/>
+              <field name="passport_department"/>
+            </group>
+            <group>
+              <field name="birth_date"/>
+            </group>
+          </page>
+        </xpath>
+
+        <xpath expr="//field[@name='vat']" position="before">
+          <field name="company_form" attrs="{'invisible': [('is_company','=', False)]}"/>
+        </xpath>
+
+        <xpath expr="//field[@name='vat']" position="after">
+          <field name="iec" attrs="{'invisible': ['|', ('is_company','=', False), ('company_form','=', 'sp')]}"/>
+          <field name="okpo" attrs="{'invisible': [('is_company','=', False)]}"/>
+          <field name="arceat" attrs="{'invisible': ['|', ('is_company','=', False), ('company_form','=', 'sp')]}"/>
+          <field name="psrn" attrs="{'invisible': ['|', ('is_company','=', False), ('company_form','=', 'sp')]}"/>
+          <field name="psrn_sp" attrs="{'invisible': ['|', ('is_company','=', False), ('company_form', '!=', 'sp')]}"/>
+          <field name="sp_register_number" attrs="{'invisible': ['|', ('is_company','=', False), ('company_form', '!=', 'sp')]}"/>
+          <field name="sp_register_date" attrs="{'invisible': ['|', ('is_company','=', False), ('company_form', '!=', 'sp')]}"/>
+        </xpath>
+
+        <xpath expr="//field[@name='vat']" position="attributes">
+          <attribute name="string">TIN</attribute>
+        </xpath>
+
+      </field>
+    </record>
+
+  </data>
+</odoo>
