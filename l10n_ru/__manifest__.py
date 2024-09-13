@@ -19,9 +19,9 @@
     "depends": ["base", "account", "uom", "product"],
     "pre_init_hook": "pre_init_hook",
     "data": [
-        "data/account_chart_template.xml",
         "data/account_chart.xml",
         "data/account.account.template.csv",
+        "data/account_chart_template.xml",
         "data/res.partner.title.csv",
         "data/account_tax_group_data.xml",
         "data/account_tax_template.xml",
