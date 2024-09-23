@@ -8,7 +8,7 @@
 
     <template id="hidden_signup" inherit_id="auth_signup.login">
         <xpath expr="//a[@t-if='signup_enabled']" position="before">
-            <t t-set="disable_footer" t-value="False" />
+            <t t-set="signup_enabled" t-value="False" />
         </xpath>
     </template>
 </odoo>
