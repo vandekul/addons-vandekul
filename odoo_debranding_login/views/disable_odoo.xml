@@ -8,7 +8,7 @@
 
     <template id="hidden_signup" inherit_id="auth_signup.signup">
         <xpath expr="//a[@role='button']" position="attributes">
-            <attribute name="class" remove="d-none" />
+            <attribute name="class" add="d-none" />
         </xpath>
     </template>
 </odoo>
