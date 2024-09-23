@@ -6,12 +6,9 @@
         </xpath>
     </template>
 
-    <template id="hidden_signup" inherit_id="auth_signup.signup">
-        <xpath expr="//div[@class='text-center oe_login_buttons d-grid pt-3']" position="replace">
-            <div class="text-center oe_login_buttons d-grid pt-3">
-                <button type="submit" class="btn btn-primary"> Sign up</button>
-                <div class="o_login_auth"/>
-            </div>
+    <template id="hidden_signup" inherit_id="auth_signup.login">
+        <xpath expr="//a[@t-if='tsignup_enabled']" position="before">
+            <t t-set="disable_footer" t-value="False" />
         </xpath>
     </template>
 </odoo>
