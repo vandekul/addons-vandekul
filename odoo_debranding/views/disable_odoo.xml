@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="debranding_login_layout" inherit_id="web.login_layout" >
+        <xpath expr="//a[@target='_blank']" position="replace">
+        </xpath>
+    </template>
+
+    <template id="debranding_mail_notification_layout" inherit_id="mail.mail_notification_layout" >
+        <xpath expr="//p[@style='color: #555555; font-size:11px;']" position="replace">
+        </xpath>
+    </template>
+
+    <template id="debranding_digest_mail_main" inherit_id="digest.digest_mail_main" >
+        <xpath expr="//p[@class='by_odoo']" position="replace">
+        </xpath>
+    </template>
+
+    <template id="debranding_mail_notification_light" inherit_id="mail.mail_notification_light" >
+        <xpath expr="//tr[2]/td[@align='center']" position="replace">
+        </xpath>
+    </template>
+
+    <template id="debranding_portal_record_sidebar" inherit_id="portal.portal_record_sidebar" >
+        <xpath expr="//div[@class='card-footer small text-center text-muted border-top-0 pt-1 pb-1 d-none d-lg-block']" position="replace">
+        </xpath>
+    </template>
+
+</odoo>

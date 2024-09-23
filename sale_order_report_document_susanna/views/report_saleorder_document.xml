@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="report_saleorder_document_susanna" inherit_id="sale.report_saleorder_document" >
+        <!-- Eliminem el Sale Person -->
+        <xpath expr="//div[@t-if='doc.user_id.name']" position="replace">
+        </xpath>
+
+        <!-- S'elimina la quantitat i el preu unitat -->
+        <xpath expr="//th[@name='th_quantity']" position="replace"> </xpath>
+        <xpath expr="//th[@name='th_priceunit']" position="replace"> </xpath>
+
+        <xpath expr="//t[@t-if='not line.display_type']" position="replace">
+            <td name="td_name"><span t-field="line.name"/></td>
+            <td t-if="display_discount" class="text-end">
+                <span t-field="line.discount"/>
+            </td>
+            <td name="td_taxes" class="text-end">
+                <span t-out="', '.join(map(lambda x: (x.description or x.name), line.tax_id))"/>
+            </td>
+            <td t-if="not line.is_downpayment" name="td_subtotal" class="text-end o_price_total">
+                <span t-field="line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+                <span t-field="line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
+            </td>
+        </xpath>
+
+    </template>
+
+
+</odoo>
