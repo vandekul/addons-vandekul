@@ -6,9 +6,9 @@
         </xpath>
     </template>
 
-    <!--template id="hidden_signup" inherit_id="auth_signup.signup">
-        <xpath expr="hasclass('oe_login_buttons')" position="attributes">
+    <template id="hidden_signup" inherit_id="auth_signup.signup">
+        <xpath expr="//a[@role='button']" position="attributes">
             <attribute name="class" remove="d-none" />
         </xpath>
-    </template-->
+    </template>
 </odoo>
