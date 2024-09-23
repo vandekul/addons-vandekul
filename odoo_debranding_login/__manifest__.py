@@ -8,5 +8,6 @@
     "license": "LGPL-3",
     "category": "Website",
     "data": ["views/disable_odoo.xml"],
+    'images': ['static/description/favicon-black.png'],
     "installable": True,
 }
