@@ -7,7 +7,6 @@
     "website": "https://github.com/vandekul",
     "license": "LGPL-3",
     "category": "Website",
-    "depends": ["website"],
     "data": ["views/disable_odoo.xml"],
     "installable": True,
 }
