@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="debranding_login_layout" inherit_id="web.login_layout" >
+        <xpath expr="//[@t-if='not disable_footer']" position="attributes">
+            <attribute name="class" remove="d-none" />
+        </xpath>
+    </template>
+
+    <template id="hidden_signup" inherit_id="auth_signup.signup">
+        <xpath expr="hasclass('oe_login_buttons')" position="attributes">
+            <attribute name="class" remove="d-none" />
+        </xpath>
+    </template>
+</odoo>
