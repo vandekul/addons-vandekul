@@ -10,5 +10,6 @@
     "license": "GPL-3",
     "website": "https://github.com/vandekul",
     "depends": ["delivery_sendcloud_official"],
-    "data": ["views/sendcloud_integration_view.xml"],
+    "data": ["views/sendcloud_integration_view.xml",
+             "views/sale_order_view.xml"],
 }

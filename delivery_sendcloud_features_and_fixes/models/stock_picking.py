@@ -19,10 +19,11 @@ class StockPicking(models.Model):
     _inherit = ["stock.picking"]
 
     def _prepare_sendcloud_vals_from_picking(self, package=False):
+
         vals = super()._prepare_sendcloud_vals_from_picking(package=package)
 
         kit_product = self.sudo().carrier_id.sendcloud_integration_id.kit_product
-        _logger.info("Prepare_sendcloud_vals_from_picking %s", kit_product)
+
         if kit_product:
             move_lines = self.move_ids.mapped("move_line_ids")
             if package:
@@ -38,20 +39,33 @@ class StockPicking(models.Model):
             kit_description = ""
             for move in moves:
                 # If we want to send only KIT product and not all sub-products
+                _logger.info("\nPRODUCT_NAME: %s\n", move.sale_line_id.product_id.display_name)
                 if move.sale_line_id.product_id.is_kits:
                     if kit_description != move.sale_line_id.product_id.display_name and kit_product:
                         line_vals = self._prepare_sendcloud_item_vals_from_kit(move, package=package)
                         kit_description = line_vals["description"]
                         total_weight += line_vals["weight"]
                         parcel_items += [line_vals]
+                        #_logger.info("\n1.TOTAL WEIGHT: %s\n", line_vals["weight"])
             if parcel_items:
                 vals["parcel_items"] = parcel_items
+            #_logger.info("\n2.VALS: %s\n",  vals["parcel_items"])
         return vals
 
     def _prepare_sendcloud_item_vals_from_moves(self, move, package=False):
+        volumetric_weight = 0
         line_vals = super()._prepare_sendcloud_item_vals_from_moves(move=move, package=package)
+        if move.product_id.product_height > 0 and move.product_id.product_width > 0 and move.product_id.product_length > 0:
+            volumetric_weight = ((
+                    move.product_id.product_height * move.product_id.product_width * move.product_id.product_length) / 5000)
+
+        if volumetric_weight > move.product_id.weight:
+            self.shipping_weight = self._sendcloud_convert_weight_to_kg(volumetric_weight)
+        else:
+            self.shipping_weight = self._sendcloud_convert_weight_to_kg(move.product_id.weight)
 
         weight = self._sendcloud_convert_weight_to_kg(move.product_id.weight)
+
         # Modify how to calc price from BOM (1/2)
         if move.sale_line_id.purchase_price != 0:
             price = round(
@@ -70,11 +84,18 @@ class StockPicking(models.Model):
         return line_vals
 
     def _prepare_sendcloud_item_vals_from_kit(self, move, package=False):
-        self.ensure_one()
-
+        volumetric_weight = 0
         #_logger.info("KIT %s %s", move.sale_line_id.product_id.is_kits, move.product_id)
         # Modify weight to get from product_id
-        weight = self._sendcloud_convert_weight_to_kg(move.sale_line_id.product_id.weight)
+        # Calculem el valor volumètric si tenim les mides i ens quedem amb el valor més alt
+        if move.sale_line_id.product_id.product_height > 0 and move.sale_line_id.product_id.product_width > 0 and move.sale_line_id.product_id.product_length > 0:
+            volumetric_weight = ((
+                    move.sale_line_id.product_id.product_height * move.sale_line_id.product_id.product_width * move.sale_line_id.product_id.product_length) / 5000)
+
+        if volumetric_weight > move.sale_line_id.product_id.weight:
+            weight = self._sendcloud_convert_weight_to_kg(move.sale_line_id.product_id.weight)
+        else:
+            weight = self._sendcloud_convert_weight_to_kg(volumetric_weight)
 
         quantity = int(move.product_uom_qty)  # TODO should be quantity_done ?
         partner_country = self.partner_id.country_id.code
@@ -95,7 +116,7 @@ class StockPicking(models.Model):
             "value": price,
             # not converted to euro as the currency is always set
         }
-        #_logger.info("\nSENDCLOUD ITEM: Descr %s - Quanty %f - Weight %f - Price %f", move.product_id.display_name, quantity, weight, price)
+        _logger.info("\nSENDCLOUD ITEM: Descr %s - Quanty %f - Weight %f - Price %f", move.product_id.display_name, quantity, weight, price)
         # Parcel items (mandatory when shipping outside of EU)
         if is_outside_eu or state_requires_hs_code:
             parcel_item_outside_eu = self._prepare_sendcloud_parcel_items_outside_eu(move)
@@ -131,3 +152,14 @@ class StockPicking(models.Model):
         )
         _logger.info("KIT %s", pprint.pformat(line_vals))
         return line_vals
+
+    def _sendcloud_check_collo_weight(self, weight):
+        order = self.env["sale.order"].search([('name', '=', self.origin)])
+        if order.sendcloud_order_weight > order.sendcloud_order_volumetric_weight:
+            self.shipping_weight = order.sendcloud_order_weight
+        else:
+            self.shipping_weight = order.sendcloud_order_volumetric_weight
+
+        #_logger.info("SENDCLOUD CHECK COLLO WEIGHT: %s (%s)\n", order, self.shipping_weight)
+
+        return super()._sendcloud_check_collo_weight(weight=self.shipping_weight)

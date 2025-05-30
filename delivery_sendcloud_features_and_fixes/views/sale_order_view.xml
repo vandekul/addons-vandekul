@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="delivery_sendcloud_official.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='sendcloud_customs_shipment_type']" position="after">
+                <field name="sendcloud_order_weight"/>
+                <field name="sendcloud_order_volumetric_weight"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
