@@ -67,4 +67,4 @@ class SaleOrder(models.Model):
                     #             line.product_id.product_width, line.product_id.product_length, volumetric_weight)
                 #_logger.info("Heigh x lenght x width = %s\n", volumetric_weight)
 
-            order.sendcloud_order_volumetric_weight = volumetric_weight
+            order.sendcloud_order_volumetric_weight = round(volumetric_weight,2)
