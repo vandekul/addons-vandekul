@@ -23,6 +23,7 @@ class SaleOrder(models.Model):
     def _get_delivery_methods(self):
         # Modify the shipping methods so that it takes into account only those that meet the weight of the order
         weight = 0
+        resultat = []
         available_carriers = super()._get_delivery_methods()
         sendcloud_carriers = available_carriers.filtered(
             lambda c: c.delivery_type == "sendcloud" and c.sendcloud_is_return is False
@@ -38,10 +39,19 @@ class SaleOrder(models.Model):
         )
 
         other_carriers = available_carriers.filtered(lambda c: c.delivery_type != "sendcloud")
+        resultat_total = sendcloud_carriers + other_carriers
 
-        for delivery in (sendcloud_carriers + other_carriers):
-            _logger.info("DELIVERY: %s\n", delivery.name)
-        return sendcloud_carriers + other_carriers
+        # Ordenamos los métodos de envío de más barato a más caro
+        def get_dc_price(dc):
+            res = dc.rate_shipment(order)
+            return res['price']
+
+        resultat = resultat_total.sorted(key=get_dc_price)
+        number_of_carriers = self.sudo().carrier_id.sendcloud_integration_id.number_of_carriers
+        if number_of_carriers <= 0:
+            return resultat
+        else:
+            return resultat[:number_of_carriers]
 
     def _cart_update(self, *args, **kwargs):
         """ Override to update carrier quotation if quantity changed """

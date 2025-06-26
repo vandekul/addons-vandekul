@@ -6,6 +6,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='active']" position="after">
                 <field name="kit_product"/>
+                <field name="number_of_carriers"/>
             </xpath>
         </field>
     </record>

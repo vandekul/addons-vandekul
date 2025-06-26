@@ -11,3 +11,6 @@ class SendcloudIntegrationKitProduct(models.Model):
     kit_product = fields.Boolean("Kit Product",
                                  default=False,
                                  help="If it's set KIT products will be sent to sendcloud like one product and not like it's components")
+    number_of_carriers = fields.Integer("Number of options to be shown",
+                                        default=0,
+                                        help="Number of options to be shown, if 0 it shows all the options")
