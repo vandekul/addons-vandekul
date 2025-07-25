@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_delivery_carrier_form" model="ir.ui.view">
+        <field name="model">delivery.carrier</field>
+        <field name="inherit_id" ref="delivery.view_delivery_carrier_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[1]" position='before'>
+                <page
+                    string="Packlink PRO Configuration"
+                    attrs="{'invisible': [('delivery_type', '!=', 'packlink_pro')]}"
+                >
+                    <group>
+                        <group>
+                            <field
+                                name="packlink_pro_api"
+                                attrs="{
+                                    'required': [
+                                        ('delivery_type', '=', 'packlink_pro')
+                                    ]
+                                }"
+                            />
+                            <field name="default_shipment_type"/>
+                            <field name="draft"/>
+                            <field name="dropoff"/>
+                            <field name="delivery_to_parcelshop"/>
+
+                            <field name="package_kit_length"/>
+                            <field name="package_kit_height"/>
+                            <field name="package_kit_width"/>
+
+                            <field name="envelope_length"/>
+                            <field name="envelope_height"/>
+                            <field name="envelope_width"/>
+
+                            <field name="package_coeficient"/>
+
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
