@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_normal_form_view_inherit_back_in_stock" model="ir.ui.view">
+            <field name="name">product.back_in_stock</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <div name="button_box" position="inside">
+                    <button class="oe_stat_button" name="action_view_notify_emails"
+                        type="object" icon="fa-envelope" help="Back in stock Notifications">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="stock_notification_partner_ids" widget="statinfo" nolabel="1" class="mr4"/>
+                            </span>
+                            <span class="o_stat_text">Stock Notification</span>
+                        </div>
+                    </button>
+                </div>
+            </field>
+    </record>
+
+    <record id="stock_notification_tree_view" model="ir.ui.view">
+        <field name="name">stock.notification.tree.view</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+                <tree string="Stock Notification List" multi_edit="1" duplicate="false" sample="1">
+                    <field name="name"/>
+                    <field name="email"/>
+                </tree>
+        </field>
+    </record>
+
+    <record id="act_stock_notification" model="ir.actions.act_window">
+        <field name="name">Stock Notification</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="stock_notification_tree_view"/>
+    </record>
+
+
+
+</odoo>
