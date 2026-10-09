@@ -24,7 +24,7 @@
     'author': 'Vande',
     'website': 'https://github.com/vandekul',
     'category': 'Theme/eCommerce',
-    'version': '16.0',
+    'version': '17.0',
     'license': 'GPL-3',
     'application': True,
     'depends': ['website', 'website_sale'],

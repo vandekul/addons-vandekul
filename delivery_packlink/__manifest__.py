@@ -3,7 +3,7 @@
 {
     "name": "Delivery Packlink PRO",
     "summary": "Delivery Carrier implementation for Packlink PRO using their API",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "Stock",
     "website": "https://github.com/vandekul/susanna",
     "author": "Susanna Fort",
