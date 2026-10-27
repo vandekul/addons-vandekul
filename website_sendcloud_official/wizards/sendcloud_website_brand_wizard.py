@@ -1,8 +1,7 @@
 # Copyright 2021 Onestein (<https://www.onestein.nl>)
-# License OPL-1 (https://www.odoo.com/documentation/16.0/legal/licenses.html#odoo-apps).
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl)
 
-from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError
+from odoo import api, fields, models
 
 
 class SendcloudWebsiteBrandWizard(models.TransientModel):
@@ -34,9 +33,9 @@ class SendcloudWebsiteBrandWizard(models.TransientModel):
         for line in self.website_ids:
             website = line.website_id
             website.sendcloud_brand_id = line.sendcloud_brand_id
-
-        company = self.env.company
-        company.set_onboarding_step_done("sendcloud_onboarding_website_brand_state")
+        self.env["onboarding.onboarding.step"].action_validate_step(
+            "website_sendcloud_official.onboarding_website_brand_step"
+        )
 
 
 class SendcloudChangeWebsiteBrandWizard(models.TransientModel):

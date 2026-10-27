@@ -1,24 +1,21 @@
 # Copyright 2021 Onestein (<https://www.onestein.nl>)
-# License OPL-1 (https://www.odoo.com/documentation/16.0/legal/licenses.html#odoo-apps).
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl)
 
 import logging
 
-from odoo import http, _
+from odoo import http
 from odoo.http import request
-from odoo.addons.website_sale_delivery.controllers.main import WebsiteSaleDelivery
+
+from odoo.addons.website_sale.controllers.delivery import Delivery
 
 _logger = logging.getLogger(__name__)
 
 
-class WebsiteSaleSendcloudDelivery(WebsiteSaleDelivery):
-
-    def _update_website_sale_delivery_return(self, order, **post):
-        res = super()._update_website_sale_delivery_return(order, **post)
-        if order and post.get('carrier_id'):
-            carrier_id = int(post['carrier_id'])
-            carrier = request.env['delivery.carrier'].sudo().browse(carrier_id)
-            if carrier and carrier.delivery_type == 'sendcloud':
-                res.update(order.sendcloud_sale_delivery_data(carrier))
+class WebsiteSaleSendcloudDelivery(Delivery):
+    def _order_summary_values(self, order, **post):
+        res = super()._order_summary_values(order, **post)
+        if order.carrier_id.delivery_type == "sendcloud":
+            res.update({"sendcloud_details": order.sendcloud_details})
         return res
 
     @http.route(
@@ -40,23 +37,3 @@ class WebsiteSaleSendcloudDelivery(WebsiteSaleDelivery):
                 }
             )
         return True
-
-    # TODO do we need this?
-    # @http.route('/shop/payment/validate', type='http', auth="public", website=True, sitemap=False)
-    # def payment_validate(self, transaction_id=None, sale_order_id=None, **post):
-    #     """ Method that should be called by the server when receiving an update
-    #     for a transaction.
-    #     """
-    #     if sale_order_id is None:
-    #         order = request.website.sale_get_order()
-    #     else:
-    #         order = request.env['sale.order'].sudo().browse(sale_order_id)
-    #         assert order.id == request.session.get('sale_last_order_id')
-    #
-    #     # raise in case service point is required but not set
-    #     carrier = order.carrier_id
-    #     if carrier.sendcloud_service_point_input == "required":
-    #         if not order.sendcloud_service_point_address:
-    #             raise ValidationError(_("Sendcloud Service Point is required."))
-    #
-    #     return super().payment_validate(transaction_id, sale_order_id, **post)

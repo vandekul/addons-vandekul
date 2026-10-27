@@ -5,19 +5,17 @@
         <field name="inherit_id" ref="delivery.view_delivery_carrier_form" />
         <field name="arch" type="xml">
             <xpath expr="//notebook/page[1]" position='before'>
+                <!-- S'ha canviat attrs invisible per l'atribut natiu invisible -->
                 <page
                     string="Packlink PRO Configuration"
-                    attrs="{'invisible': [('delivery_type', '!=', 'packlink_pro')]}"
+                    invisible="delivery_type != 'packlink_pro'"
                 >
                     <group>
                         <group>
+                            <!-- S'ha canviat attrs required per l'atribut natiu required -->
                             <field
                                 name="packlink_pro_api"
-                                attrs="{
-                                    'required': [
-                                        ('delivery_type', '=', 'packlink_pro')
-                                    ]
-                                }"
+                                required="delivery_type == 'packlink_pro'"
                             />
                             <field name="default_shipment_type"/>
                             <field name="draft"/>

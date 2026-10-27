@@ -66,12 +66,12 @@ class DeliveryCarrier(models.Model):
         elif type == "stacked":
             is_accessories = False
             for product in order.order_line:
-                if product.product_id.product_height and product.product_id.detailed_type == 'product':
+                if product.product_id.product_height and product.product_id.type == 'consu':
                     length = self.package_kit_length
                     width = self.package_kit_width
                     height += product.product_id.product_height
                     weight += product.product_id.weight
-                elif not product.product_id.product_height and product.product_id.detailed_type == 'product':
+                elif not product.product_id.product_height and product.product_id.type == 'consu':
                     # Afegim la caixa d'accessoris
                     if not is_accessories:
                         height += 5.0

@@ -3,17 +3,14 @@
 {
     "name": "Delivery Packlink PRO",
     "summary": "Delivery Carrier implementation for Packlink PRO using their API",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "Stock",
     "website": "https://github.com/vandekul/susanna",
     "author": "Susanna Fort",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [# OCA/delivery-carrier
-                "delivery_state",
-                # OCA/product-attribute
-                "product_dimension"],
+    "depends": ["delivery","stock" ],
     "external_dependencies": {"python": ["unidecode"]},
     "data": ["views/delivery_carrier_view.xml",
              "views/stock_picking_views.xml",

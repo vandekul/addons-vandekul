@@ -8,9 +8,15 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <page name="other_information" position="after">
-                <page string="Packlink" name="packlink_sale" attrs="{'invisible':[('is_packlink_pro_delivery_type','!=',True)]}">
+                <!-- S'ha canviat attrs invisible per l'atribut natiu invisible amb expressió de Python -->
+                <page 
+                    string="Packlink" 
+                    name="packlink_sale" 
+                    invisible="not is_packlink_pro_delivery_type"
+                >
                     <group>
                         <group name="packlink_sale">
+                            <!-- Es manté invisible="1", ja que és correcte en camps tècnics ocults -->
                             <field name="is_packlink_pro_delivery_type" invisible="1"/>
                             <field name="packlink_pro_service_selected_id" string="Service Selected ID"/>
                             <field name="packlink_pro_service_selected" string="Service Selected"/>
