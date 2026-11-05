@@ -1,0 +1,638 @@
+//------------------------------------------------------------------------------
+// Zynthian theme - frontend styles
+// Replicates the zynthian.org (Grav "hola") look & feel on the Odoo shop.
+//------------------------------------------------------------------------------
+
+$zyn-red: o-color('o-color-1');            // #862121
+$zyn-red-light: #B65151;                   // link hover on zynthian.org
+$zyn-black: o-color('o-color-5');          // #0D0A0B
+$zyn-nav-hover: #A0E0A0;                   // header link hover on zynthian.org
+$zyn-terminal-font: 'IBM Plex Mono', monospace;
+$zyn-titles-font: 'Space Grotesk', $font-family-base;   // --font-titles in Grav
+
+// Fonts imported by the zynthian.org Grav theme (user/themes/hola/fonts),
+// bundled locally: no other font (nor Google Fonts) is used by the theme.
+// Relative to this file: Odoo's asset bundler prefixes relative url()s with
+// the SCSS file directory (/theme_zynthian/static/src/scss/).
+$zyn-font-path: '../fonts/grav';
+@mixin zyn-font-face($family, $file, $weight, $style: normal) {
+    @font-face {
+        font-family: $family;
+        font-style: $style;
+        font-weight: $weight;
+        font-display: swap;
+        src: url('#{$zyn-font-path}/#{$file}') format('woff2');
+    }
+}
+@include zyn-font-face('Inter', 'inter/Inter-Regular.woff2', 400);
+@include zyn-font-face('Inter', 'inter/Inter-Italic.woff2', 400, italic);
+@include zyn-font-face('Inter', 'inter/Inter-Bold.woff2', 700);
+@include zyn-font-face('Inter', 'inter/Inter-BoldItalic.woff2', 700, italic);
+@include zyn-font-face('Inter', 'inter/Inter-ExtraBold.woff2', 800);
+@include zyn-font-face('Montserrat', 'montserrat/montserrat-light-webfont.woff2', 300);
+@include zyn-font-face('Montserrat', 'montserrat/montserrat-medium-webfont.woff2', 500);
+@include zyn-font-face('Montserrat', 'montserrat/montserrat-semibold-webfont.woff2', 600);
+@include zyn-font-face('Space Grotesk', 'spacegrotesk/SpaceGrotesk-Variable.woff2', 300 700);
+@include zyn-font-face('IBM Plex Mono', 'ibmplexmono/IBMPlexMono-Thin.woff2', 100);
+@include zyn-font-face('IBM Plex Mono', 'ibmplexmono/IBMPlexMono-ExtraLight.woff2', 200);
+@include zyn-font-face('IBM Plex Mono', 'ibmplexmono/IBMPlexMono-Regular.woff2', 400);
+@include zyn-font-face('IBM Plex Mono', 'ibmplexmono/IBMPlexMono-Medium.woff2', 500);
+@include zyn-font-face('IBM Plex Mono', 'ibmplexmono/IBMPlexMono-Bold.woff2', 700);
+
+// -----------------------------------------------------------------------------
+// Typography
+// -----------------------------------------------------------------------------
+
+#wrapwrap {
+    h1, .h1 {
+        font-family: $font-family-base;
+        font-weight: 800;
+        letter-spacing: -.0625rem;
+    }
+
+    h6, .h6 {
+        font-family: $font-family-base;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: .1rem;
+    }
+
+    .display-1, .display-2, .display-3, .display-4 {
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    p.lead {
+        font-family: $zyn-terminal-font;
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    strong, b {
+        font-weight: 800;
+    }
+
+    a:not(.btn):not(.nav-link):not(.dropdown-item) {
+        transition: color .3s ease-in-out;
+
+        &:hover, &:focus {
+            color: $zyn-red-light;
+        }
+    }
+}
+
+// "Kicker" small title: red uppercase with a line before (zynthian.org banner)
+.o_zyn_kicker {
+    color: $zyn-red !important;
+    font-size: 1.125rem !important;
+    letter-spacing: .3125rem !important;
+    position: relative;
+    display: inline-block;
+    padding-left: 5rem;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 3.75rem;
+        height: 2px;
+        margin-top: -1px;
+        background-color: $zyn-red;
+    }
+
+    &[style*="center"] {
+        display: table;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.o_zyn_hero .display-3 {
+    font-size: clamp(2.5rem, 6vw, 3.75rem);
+    line-height: 1.35;
+}
+
+// -----------------------------------------------------------------------------
+// Buttons: uppercase, wide letter-spacing, square with thick border
+// -----------------------------------------------------------------------------
+
+.btn {
+    text-transform: uppercase;
+    letter-spacing: .1875rem;
+    font-weight: 700;
+    transition: all .3s ease-in-out;
+
+    &.btn-link {
+        letter-spacing: normal;
+        text-transform: none;
+    }
+}
+
+// Black primary button turning red on hover (zynthian.org); on dark sections
+// the (red) primary button turns white on hover.
+#wrapwrap .btn-primary:not(:disabled) {
+    &:hover, &:focus {
+        background-color: $zyn-red;
+        border-color: $zyn-red;
+        color: #FFFFFF;
+    }
+}
+#wrapwrap .o_cc5 .btn-primary:not(:disabled),
+#wrapwrap .o_cc4 .btn-primary:not(:disabled) {
+    &:hover, &:focus {
+        background-color: #FFFFFF;
+        border-color: #FFFFFF;
+        color: #000000;
+    }
+}
+
+// Dark sections: outlined white buttons filling on hover (hero buttons)
+.o_cc5 .btn-outline-secondary,
+.o_cc4 .btn-outline-secondary {
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+
+    &:hover, &:focus {
+        background-color: #FFFFFF;
+        color: #000000;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Header
+// -----------------------------------------------------------------------------
+
+header#top {
+    // 72px bar like zynthian.org: symmetric padding around the 40px content
+    // (a min-height left all the extra space below the logo and the menu).
+    .navbar {
+        box-shadow: none !important;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .navbar-brand.logo img {
+        max-width: 9.375rem;
+        object-fit: contain;
+    }
+
+    .navbar-nav .nav-link {
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .25rem;
+        color: #FFFFFF;
+        transition: color .3s ease-in-out;
+
+        &:hover, &:focus {
+            color: $zyn-nav-hover;
+        }
+
+        &.active {
+            color: lighten($zyn-red, 10%);
+            font-weight: 800;
+        }
+    }
+
+    // Sign-in button and search/cart icons
+    .o_nav_link_btn {
+        border-color: rgba(#FFFFFF, .3) !important;
+    }
+    .o_navlink_background {
+        background-color: transparent !important;
+        color: #FFFFFF;
+    }
+    .my_cart_quantity, .my_wish_quantity {
+        background-color: $zyn-red !important;
+        color: #FFFFFF;
+    }
+
+    .dropdown-menu {
+        background-color: $zyn-black;
+        border: 0;
+
+        .dropdown-item {
+            color: rgba(#FFFFFF, .8);
+            text-transform: uppercase;
+            letter-spacing: .1rem;
+            font-size: .8125rem;
+
+            &:hover, &:focus, &.active {
+                background-color: transparent;
+                color: $zyn-nav-hover;
+            }
+        }
+    }
+}
+
+// Menu entries pointing to the shop or to the "buy" section are rendered as
+// buttons, like the "buy V5.1" / "shop" buttons of shop.zynthian.org.
+// (Based on the link URL, so they keep working when the menu is edited.)
+@include media-breakpoint-up(lg) {
+    header#top #top_menu {
+        align-items: center;
+
+        .nav-link[href*="buy"],
+        .nav-link[href^="/shop"] {
+            padding: .375rem 1.125rem !important;
+            margin-left: .5rem;
+            border: .125rem solid #FFFFFF;
+            letter-spacing: .15rem;
+            transition: all .3s ease-in-out;
+
+            &:hover, &:focus {
+                background-color: #FFFFFF;
+                border-color: #FFFFFF;
+                color: #000000 !important;
+            }
+        }
+
+        // "buy" is always red (it points to an anchor of the home page, so
+        // Odoo marks it as active there); "shop" is white while active.
+        .nav-link[href*="buy"]:not(:hover):not(:focus) {
+            background-color: $zyn-red;
+            border-color: $zyn-red;
+            color: #FFFFFF !important;
+        }
+        .nav-link[href^="/shop"].active:not(:hover) {
+            background-color: #FFFFFF;
+            color: #000000 !important;
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Footer
+// -----------------------------------------------------------------------------
+
+footer#bottom {
+    font-size: .875rem;
+
+    .o_zyn_footer_logo {
+        width: 12.5rem;
+    }
+
+    .o_zyn_footer_social {
+        font-size: .8125rem;
+        text-transform: uppercase;
+        letter-spacing: .1875rem;
+
+        li {
+            margin: 0 .5rem 0 0;
+            line-height: 2.5rem;
+
+            &::after {
+                content: "|";
+                color: rgba(#FFFFFF, .15);
+                padding-left: .75rem;
+            }
+            &:last-child::after {
+                display: none;
+            }
+        }
+
+        a {
+            color: #FFFFFF;
+
+            &:hover, &:focus {
+                color: $zyn-red-light;
+            }
+        }
+
+        i {
+            font-size: 1.0625rem;
+            vertical-align: middle;
+        }
+
+        span {
+            margin-left: .5rem;
+        }
+    }
+
+    .o_zyn_footer_links span:not(:last-child)::after,
+    .o_footer_copyright .o_footer_copyright_name::after {
+        content: "|";
+        display: inline-block;
+        padding: 0 .75rem;
+        color: rgba(#FFFFFF, .1);
+    }
+
+    .o_zyn_footer_links a {
+        color: $zyn-red-light;
+
+        &:hover, &:focus {
+            color: #FFFFFF;
+        }
+    }
+
+    .o_footer_copyright {
+        border-top: 0 !important;
+        font-size: .8125rem;
+    }
+
+    // Mobile: smaller footer content
+    @include media-breakpoint-down(lg) {
+        font-size: .75rem;
+
+        .o_zyn_footer {
+            padding-top: 2rem !important;
+            padding-bottom: 1rem !important;
+        }
+        .o_zyn_footer_logo {
+            width: 8rem;
+        }
+        .o_zyn_footer_social {
+            margin-top: 1rem !important;
+            font-size: .625rem;
+            letter-spacing: .1rem;
+
+            li {
+                margin: 0 .25rem 0 0;
+                line-height: 1.75rem;
+
+                &::after {
+                    padding-left: .375rem;
+                }
+            }
+            i {
+                font-size: .8125rem;
+            }
+            span {
+                margin-left: .25rem;
+            }
+        }
+        .o_zyn_footer_links {
+            padding-top: .5rem !important;
+            padding-bottom: .5rem !important;
+            font-size: .6875rem;
+
+            span:not(:last-child)::after {
+                padding: 0 .375rem;
+            }
+        }
+        .o_footer_copyright {
+            font-size: .6875rem;
+        }
+    }
+}
+
+// Scroll-to-top button: square black block fixed in the bottom-right corner,
+// like the "go-top" button of zynthian.org (Odoo centres it on the footer edge,
+// where it covered the legal links).
+#wrapwrap #o_footer_scrolltop_wrapper {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: $zindex-fixed;
+    width: auto;
+    max-width: none;
+    height: auto !important;
+    padding: 0;
+    margin: 0 !important;
+}
+#o_footer_scrolltop {
+    width: 3.75rem;
+    height: 3.75rem;
+    margin: 0 !important;
+    transform: none !important;
+    border-radius: 0 !important;
+    background-color: #000000;
+    border-color: #000000;
+    color: rgba(#FFFFFF, .6);
+
+    &:hover, &:focus {
+        color: #FFFFFF;
+        background-color: $zyn-red;
+        border-color: $zyn-red;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Home page content (migrated from shop.zynthian.org)
+// The original theme rendered every "Text" block on a dark background with
+// white text; the home page content relies on it.
+// -----------------------------------------------------------------------------
+
+// Higher specificity than the o_cc* classes so it also applies to blocks that
+// carry a colour combination (as the original theme did).
+#wrapwrap #wrap .s_text_block {
+    background-color: $zyn-black;
+    color: rgba(#FFFFFF, .85);
+    // Large light text like the titles of zynthian.org (Space Grotesk Light)
+    font-family: $zyn-titles-font;
+    font-weight: 300;
+    font-size: 2rem;
+    line-height: 1.45;
+
+    p, li {
+        font-size: inherit;
+    }
+
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        color: #FFFFFF;
+        font-family: $zyn-titles-font;
+        font-weight: 700;
+        letter-spacing: 0;
+        text-transform: none;
+    }
+    h2, .h2 { font-size: 2.5rem; }
+    h3, .h3 { font-size: 2.125rem; }
+
+    a:not(.btn) {
+        color: #FFFFFF;
+        text-decoration: underline;
+
+        &:hover, &:focus {
+            color: $zyn-red-light;
+        }
+    }
+
+    .btn-primary {
+        background-color: $zyn-red;
+        border-color: $zyn-red;
+        color: #FFFFFF;
+
+        &:hover, &:focus {
+            background-color: #FFFFFF;
+            border-color: #FFFFFF;
+            color: #000000;
+        }
+    }
+
+    @include media-breakpoint-down(lg) {
+        font-size: 1.375rem;
+
+        h2, .h2 { font-size: 1.75rem; }
+        h3, .h3 { font-size: 1.5rem; }
+    }
+}
+
+// Product carousels (dynamic snippets) with the same black card footer as
+// the shop grid.
+.s_dynamic_snippet_products .card-body,
+.dynamic_snippet_template .card-body {
+    background-color: $zyn-black !important;
+    color: #FFFFFF !important;
+
+    .card-title, .card-title a, .js_add_cart, .fa {
+        color: #FFFFFF !important;
+    }
+    .card-title {
+        font-family: $zyn-titles-font;
+        font-weight: 600;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Shop grid (/shop): like shop.zynthian.org/shop/category/all-10
+// -----------------------------------------------------------------------------
+
+.o_wsale_products_page {
+
+    // Categories: row of small dark buttons on top
+    .o_wsale_filmstip_container {
+        margin-top: 1.5rem;
+        margin-bottom: 1rem !important;
+    }
+
+    .o_wsale_filmstip {
+        > li .btn {
+            font-family: $font-family-base;
+            font-size: .8125rem !important;
+            font-weight: 700 !important;
+            text-transform: uppercase;
+            letter-spacing: .15rem;
+            padding: .5rem 1.5rem !important;
+            border: 0;
+            background-color: $zyn-black;
+            color: #FFFFFF;
+
+            &:hover {
+                background-color: $zyn-red;
+            }
+        }
+
+        .btn-check:checked + .btn,
+        > li .btn.border-primary {
+            background-color: $zyn-red !important;
+            color: #FFFFFF;
+        }
+    }
+
+    // Product cards: white picture on top, black bar with the name & price
+    #products_grid:not(.o_wsale_layout_list) {
+        .o_wsale_products_grid_table_wrapper > table {
+            --o-wsale-card-border-radius: 0;
+        }
+
+        .oe_product_cart {
+            background-color: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, .08) !important;
+            border-radius: 0 !important;
+            overflow: hidden;
+            transition: box-shadow .3s ease-in-out;
+
+            &:hover {
+                box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .18);
+            }
+
+            .oe_product_image {
+                background-color: #FFFFFF;
+            }
+
+            .o_wsale_product_information {
+                background-color: $zyn-black;
+                color: #FFFFFF;
+                padding: .75rem !important;
+            }
+
+            .o_wsale_products_item_title {
+                font-family: $zyn-titles-font;
+                font-size: .9375rem;
+                font-weight: 600;
+                text-transform: none;
+                letter-spacing: 0;
+
+                a {
+                    color: #FFFFFF !important;
+
+                    &:hover {
+                        color: $zyn-nav-hover !important;
+                    }
+                }
+            }
+
+            // price + cart icon on the same line, cart after the price
+            .o_wsale_product_sub {
+                justify-content: flex-start !important;
+                align-items: center !important;
+            }
+            .o_wsale_product_btn {
+                order: 2;
+                position: static !important;
+                opacity: 1 !important;
+
+                .btn {
+                    background: transparent !important;
+                    border: 0 !important;
+                    color: #FFFFFF !important;
+                    padding: 0 .5rem !important;
+                    letter-spacing: 0;
+
+                    &:hover {
+                        color: $zyn-red-light !important;
+                    }
+                }
+            }
+
+            .product_price {
+                .h6, span[data-oe-type="monetary"] {
+                    font-family: $font-family-base;
+                    font-size: .8125rem;
+                    font-weight: 700;
+                    letter-spacing: 0;
+                    text-transform: none;
+                    color: #FFFFFF;
+                }
+                del {
+                    color: rgba(#FFFFFF, .5) !important;
+                }
+            }
+        }
+    }
+
+    // The wishlist heart button is not shown in the grid (as in the old theme)
+    .o_add_wishlist {
+        display: none !important;
+    }
+}
+
+// Ribbons: square like the rest of the theme
+.o_ribbons,
+.o_ribbon {
+    border-radius: 0;
+}
+
+// -----------------------------------------------------------------------------
+// Product page
+// -----------------------------------------------------------------------------
+
+#product_detail {
+    #product_details h1 {
+        font-family: $zyn-titles-font;
+        font-weight: 700;
+        color: $zyn-black;
+    }
+
+    .product_price .oe_price,
+    .oe_price_h4 .oe_price {
+        color: $zyn-red;
+        font-weight: 700;
+    }
+
+    #add_to_cart,
+    .o_we_buy_now {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}

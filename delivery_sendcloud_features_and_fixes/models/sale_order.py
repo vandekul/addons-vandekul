@@ -70,7 +70,7 @@ class SaleOrder(models.Model):
         for order in self:
 
             for line in order.order_line:
-                if line.product_id.detailed_type == 'product':
+                if line.product_id.type == 'consu' and line.product_id.is_storable:
                     if line.product_id.product_height > 0 and line.product_id.product_width > 0 and line.product_id.product_length > 0:
                         volumetric_weight += ((line.product_id.product_height * line.product_id.product_width * line.product_id.product_length)/5000)* line.product_qty
                     #_logger.info("Line %s %s x %s x %s = %s\n", line.product_id.name, line.product_id.product_height,

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Footer template option, available in the website editor (Footer > Template) -->
+<template id="template_footer_opt" inherit_id="website.snippet_options" name="Zynthian Footer Template - Option">
+    <xpath expr="//we-select[@data-variable='footer-template']" position="inside">
+        <we-button title="Zynthian"
+            data-customize-website-views="theme_zynthian.template_footer_zynthian"
+            data-customize-website-variable="'zynthian'"
+            data-img="/website/static/src/img/snippets_options/footer_template_centered.svg"/>
+    </xpath>
+</template>
+
+<!-- Footer layout: replica of the zynthian.org footer -->
+<template id="template_footer_zynthian" inherit_id="website.layout" name="Zynthian Footer" active="False">
+    <xpath expr="//div[@id='footer']" position="replace">
+        <div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer">
+            <section class="s_text_block o_zyn_footer pt64 pb32" data-snippet="s_text_block" data-name="Text">
+                <div class="container s_allow_columns text-center">
+                    <a href="https://zynthian.org" class="o_zyn_footer_logo d-inline-block">
+                        <img src="/theme_zynthian/static/src/img/logo.png" class="img-fluid" alt="Zynthian" title="Zynthian"/>
+                    </a>
+                    <ul class="o_zyn_footer_social list-inline mt-4 mb-0">
+                        <li class="list-inline-item"><a href="https://discourse.zynthian.org/" target="_blank"><i class="fa fa-comment"/><span>Discourse</span></a></li>
+                        <li class="list-inline-item"><a href="https://github.com/zynthian" target="_blank"><i class="fa fa-github"/><span>Github</span></a></li>
+                        <li class="list-inline-item"><a href="https://wiki.zynthian.org/" target="_blank"><i class="fa fa-wikipedia-w"/><span>Wiki</span></a></li>
+                        <li class="list-inline-item"><a href="https://blog.zynthian.org/" target="_blank"><i class="fa fa-wordpress"/><span>Blog</span></a></li>
+                        <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCc9Tv__HdwQjPjKUd5mIhaw" target="_blank"><i class="fa fa-youtube-play"/><span>Youtube</span></a></li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/zynthian/" target="_blank"><i class="fa fa-instagram"/><span>Instagram</span></a></li>
+                        <li class="list-inline-item"><a href="mailto:info@zynthian.org"><i class="fa fa-envelope"/><span>Contact us</span></a></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="s_text_block o_zyn_footer_links pt16 pb16" data-snippet="s_text_block" data-name="Links">
+                <div class="container s_allow_columns text-center">
+                    <p class="mb-0">
+                        <span><a href="/cookie-policy">Cookie Policy</a></span>
+                        <span><a href="/privacy-policy">Privacy Policy</a></span>
+                        <span><a href="/terms-conditions">Terms &amp; Conditions</a></span>
+                    </p>
+                </div>
+            </section>
+        </div>
+    </xpath>
+</template>
+
+</odoo>
