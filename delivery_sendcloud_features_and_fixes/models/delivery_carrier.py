@@ -14,28 +14,44 @@ class DeliveryCarrier(models.Model):
     _name =  "delivery.carrier"
     _inherit = ["delivery.carrier"]
 
-    def available_carriers(self, partner):
-        sendcloud_carriers = []
-        order_id = self.env.context.get("sale_order_id")
-        if not order_id:
-            order_id = self.env.context.get("default_order_id")
-        if (
-                not order_id
-                and self.env.context.get("active_model") == "choose.delivery.carrier"
-        ):
-            wizard = self.env["choose.delivery.carrier"].browse(
-                self.env.context.get("active_id")
+    def available_carriers(self, *args, **kwargs):
+        """
+        Migració definitiva per a Odoo 18 de la lògica de pes volumètric de Sendcloud.
+        Suporta de forma elàstica les signatures canviants d'Odoo 18 i la OCA.
+        """
+        # 1. Extreure la comanda (sale.order) de manera segura segons Odoo 18 i la OCA
+        order = None
+        if args:
+            # Si el primer o segon argument posicional és una comanda de venda
+            if hasattr(args[0], '_name') and args[0]._name == 'sale.order':
+                order = args[0]
+            elif len(args) > 1 and hasattr(args[1], '_name') and args[1]._name == 'sale.order':
+                order = args[1]
+        
+        if not order:
+            order = kwargs.get('order')
+
+        # 2. Si no ha entrat per paràmetres, busquem la comanda pel context o pel Wizard (Retrocompatibilitat)
+        if not order:
+            order_id = self.env.context.get("sale_order_id") or self.env.context.get("default_order_id")
+            if not order_id and self.env.context.get("active_model") == "choose.delivery.carrier":
+                wizard = self.env["choose.delivery.carrier"].browse(self.env.context.get("active_id"))
+                order_id = wizard.order_id.id
+            if order_id:
+                order = self.env["sale.order"].browse(order_id)
+
+        # 3. Executar la teva lògica de pes volumètric de Sendcloud si tenim la comanda
+        if order and order.exists():
+            if order.sendcloud_order_weight < order.sendcloud_order_volumetric_weight:
+                order.sendcloud_order_weight = order.sendcloud_order_volumetric_weight
+            _logger.info(
+                "Available carriers order_id: %s weight: %s volumetric: %s\n",
+                order.id, order.sendcloud_order_weight, order.sendcloud_order_volumetric_weight
             )
-            order_id = wizard.order_id.id
 
-        order = self.env["sale.order"].browse(order_id)
-        if order.sendcloud_order_weight < order.sendcloud_order_volumetric_weight:
-            order.sendcloud_order_weight = order.sendcloud_order_volumetric_weight
-        _logger.info("Available carriers order_id: %s weight: %s volumetric: %s\n",
-                     order_id,order.sendcloud_order_weight, order.sendcloud_order_volumetric_weight)
+        # 4. Retornar el mètode original passant exactament els mateixos arguments que han entrat
+        return super().available_carriers(*args, **kwargs)
 
-        available_carriers = super().available_carriers(partner)
-        return available_carriers
 
     @api.model
     def _sendcloud_create_update_shipping_methods(
@@ -103,16 +119,13 @@ class DeliveryCarrier(models.Model):
                     }
                 )
         new_created_shipping_methods = self.create(new_shipping_methods_vals)
-        with self.env.norecompute():
-            self.sudo().env["sendcloud.shipping.method.country"].search(
-                [
-                    ("company_id", "=", company_id),
-                    ("sendcloud_is_return", "=", is_return),
-                ]
-            ).unlink()
-            self.sudo().env["sendcloud.shipping.method.country"].create(
-                new_country_vals
-            )
+        self.sudo().env["sendcloud.shipping.method.country"].search(
+            [
+                ("company_id", "=", company_id),
+                ("sendcloud_is_return", "=", is_return),
+            ]
+        ).unlink()
+        self.sudo().env["sendcloud.shipping.method.country"].create(new_country_vals)
 
         # Updated shipping methods
         updated_shipping_methods = (
